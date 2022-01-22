@@ -158,5 +158,119 @@ int main()
 {
     setlocale(LC_ALL, "ru");
     srand((unsigned)time(NULL));
-    
+    MyStorage storage(100);
+    for (int i = 0; i < storage.getCount(); i++)
+    {
+        int a = rand() % 2;
+        if (a == 0) {
+            storage.SetObject(i, new Car());
+        }
+        else {
+            storage.SetObject(i, new SuperCar());
+        }
+    }
+
+
+
+    unsigned int s = clock();
+    for (int i = 0; i < 100; i++) {
+        int a = rand() % 3;
+        int b;
+        if (storage.getCount() != 0) {
+            b = rand() % storage.getCount();
+        }
+        else {
+            b = 0;
+        }
+        int k = rand() % 2;
+        switch (a) {
+        case 0:
+            if (k == 0)
+                storage.AddObject(new Car);
+            else
+                storage.AddObject(new Car);
+
+            printf("addObject ");
+            break;
+        case 1:
+            storage.DeleteObject(b);
+            printf("removeObject ");
+            break;
+        case 2:
+            storage.PrintNameObject(b);
+            break;
+        }
+    }
+
+    unsigned int e = clock();
+    unsigned int time = e - s;
+    printf("\nВремя: %d миллисекунд\n", time);
+    system("pause");
+    s = clock();
+    for (int i = 0; i < 1000; i++) {
+        int a = rand() % 3;
+        int b;
+        if (storage.getCount() != 0) {
+            b = rand() % storage.getCount();
+        }
+        else {
+            b = 0;
+        }
+        int k = rand() % 2;
+        switch (a) {
+        case 0:
+            if (k == 0)
+                storage.AddObject(new Car);
+            else
+                storage.AddObject(new Car);
+
+            printf("addObject ");
+            break;
+        case 1:
+            storage.DeleteObject(b);
+            printf("removeObject ");
+            break;
+        case 2:
+            storage.PrintNameObject(b);
+            break;
+        }
+    }
+
+    e = clock();
+    time = e - s;
+    printf("\nВремя: %d миллисекунд\n", time);
+    system("pause");
+    s = clock();
+    for (int i = 0; i < 10000; i++) {
+        int a = rand() % 3;
+        int b;
+        if (storage.getCount() != 0) {
+            b = rand() % storage.getCount();
+        }
+        else {
+            b = 0;
+        }
+        int k = rand() % 2;
+        switch (a) {
+        case 0:
+            if (k == 0)
+                storage.AddObject(new Car);
+            else
+                storage.AddObject(new Car);
+
+            printf("addObject ");
+            break;
+        case 1:
+            storage.DeleteObject(b);
+            printf("removeObject ");
+            break;
+        case 2:
+            storage.PrintNameObject(b);
+            break;
+        }
+    }
+    e = clock();
+    time = e - s;
+    printf("\nВремя: %d миллисекунд\n", time);
+    system("pause");
 }
